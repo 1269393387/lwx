@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.auction.mapper.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.web.auction.pojo.Employee" >
+    <id column="eid" property="eid" jdbcType="INTEGER" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+    <result column="eage" property="eage" jdbcType="VARCHAR" />
+    <result column="etime" property="etime" jdbcType="VARCHAR" />
+    <result column="estate" property="estate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    eid, ename, eage, etime, estate
+  </sql>
+  
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.web.auction.pojo.EmployeeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.web.auction.pojo.EmployeeExample" >
+    delete from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.web.auction.pojo.Employee" >
+    insert into employee (eid, ename, eage, 
+      etime, estate)
+    values (#{eid,jdbcType=INTEGER}, #{ename,jdbcType=VARCHAR}, #{eage,jdbcType=VARCHAR}, 
+      #{etime,jdbcType=VARCHAR}, #{estate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.auction.pojo.Employee" >
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        eid,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="eage != null" >
+        eage,
+      </if>
+      <if test="etime != null" >
+        etime,
+      </if>
+      <if test="estate != null" >
+        estate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="eage != null" >
+        #{eage,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="estate != null" >
+        #{estate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.web.auction.pojo.EmployeeExample" resultType="java.lang.Integer" >
+    select count(*) from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update employee
+    <set >
+      <if test="record.eid != null" >
+        eid = #{record.eid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ename != null" >
+        ename = #{record.ename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eage != null" >
+        eage = #{record.eage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.etime != null" >
+        etime = #{record.etime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.estate != null" >
+        estate = #{record.estate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update employee
+    set eid = #{record.eid,jdbcType=INTEGER},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      eage = #{record.eage,jdbcType=VARCHAR},
+      etime = #{record.etime,jdbcType=VARCHAR},
+      estate = #{record.estate,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.auction.pojo.Employee" >
+    update employee
+    <set >
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="eage != null" >
+        eage = #{eage,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="estate != null" >
+        estate = #{estate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.auction.pojo.Employee" >
+    update employee
+    set ename = #{ename,jdbcType=VARCHAR},
+      eage = #{eage,jdbcType=VARCHAR},
+      etime = #{etime,jdbcType=VARCHAR},
+      estate = #{estate,jdbcType=VARCHAR}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  
+    <select id="getEmployeeListBySearch" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+      	select * from Employee where 
+  	 ename like concat('%',#{keyword},'%') 
+  	  OR eage like concat('%',#{keyword},'%')
+  	  OR etime like concat('%',#{keyword},'%')
+  	  OR estate like concat('%',#{keyword},'%')
+    </select>
+ <update id="PlaceState" parameterType="java.lang.String">
+ 	update  employee set estate = '派送中'  where eName = #{ename,jdbcType=VARCHAR}
+ </update>    
+     <select id="getUserisadmin" resultMap="BaseResultMap"  >
+   select userisadmin from Employee
+   </select>
+</mapper>

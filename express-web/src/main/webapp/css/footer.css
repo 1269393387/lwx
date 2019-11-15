@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+/* footer */
+
+.footer{
+    padding: 50px 0px 30px;
+    background: #f3f3f3
+}
+.footer li{
+    float: left;
+    margin-right: 110px
+}
+.footer li h3{
+    color: #000000;
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.footer li h3:before {
+    content: '';
+    width: 27px;
+    height: 2px;
+    background: #dc1e32;
+    position: absolute;
+    left: 0px;
+    top: 35px;
+}
+.footer li p{
+    color: #666666;
+    margin-bottom: 10px;
+}
+.footer li a{
+    color: #666666
+}
+.footer li a:hover{
+    color: #b00d1e
+}
+.footer .lists{
+    float: left;
+}
+
+.footer .last{
+    float: right;
+}
+.footer .last h3{
+    color: #000000;
+    font-size: 20px;
+}
+.footer .last h4{
+    font-size: 24px;
+    color: #dc1e32;
+    margin: 10px 0px 14px;
+}
+.footer .last p{
+    color: #666666;
+    margin-bottom: 10px;
+}
+.footer .last .icon{
+    vertical-align: -6px;
+}
+.footer .last .t2{
+    margin-top: 25px;
+    margin-bottom: 13px;
+}
+.footer .gx a{
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.copyright{
+    width: 100%;
+    padding: 25px;
+    background: #dc1e32;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+@media(max-width:1200px) {
+
+    
+    .footer li{
+        margin-right: 40px
+    }
+}
+
+@media(max-width:1000px) {
+
+   
+    .footer .last{
+        float: left;
+        margin-top: 30px
+    }
+   
+}
+
+
+@media(max-width:605px) {
+
+ 
+    .footer li{
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media(max-width:440px) {
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+@media(max-width:340px) {
+
+
+    .search-wrap .text {
+        width: 216px;
+    }
+    .search{
+        width: 280px
+    }
+    .characteristic li {
+        width: 100%;
+    }
+    .new-banner a p{
+        font-size: 13px
+    }
+    .new-lists li a {
+        width: 196px;
+    }
+    .footer .last{
+        margin-top: 16px
+    }
+    .footer .gx img{
+        width: 30px
+    }
+    .copyright{
+        padding: 14px
+    }
+
+	
+}

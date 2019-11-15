@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/* CSS Document */
+html, body, div, span,input, iframe, map, font, img, a img, samp,  hr, h1, h2, h3, h4, h5, h6, b, p, blockquote, a, address, code, dl, dt, dd, ol, ul, li, form, label, table, tr, td, th {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-weight: normal;
+	font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+
+}
+textarea{
+	font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+	resize: none;	
+}
+*{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+}
+ol, ul,li {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+a:focus {
+	outline: none;
+}
+a.hidefocus {
+	outline: none
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+img{
+	max-width: 100%!important
+}
+input[type=text], input[type=button], input[type=submit]  {
+	-webkit-appearance: none; /*去除iPhone input默认样式}*/
+}
+input{font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;}
+.clearfix:after {
+	clear:both;
+	content:'.';
+	display:block;
+	width: 0;
+	height: 0;
+	visibility:hidden;
+}
+.clearfix{
+	zoom:1;
+}
+.container{
+	width: 1200px;
+	margin: 0 auto
+}
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color:#9b9b9b; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color:#9b9b9b; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color:#9b9b9b; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color:#9b9b9b; 
+}
+.dis{
+	display: none
+}
+
